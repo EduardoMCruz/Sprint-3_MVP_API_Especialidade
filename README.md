@@ -1,6 +1,5 @@
 # Sobre o projeto
-Essa API permite que eu adicione uma especialidad medica no banco de dados de cadastro de consultas
-
+Essa API permite que eu adicione uma especialidade médica no banco de dados de cadastro de consultas
 
 ## Como executar em modo desenvolvimento
 

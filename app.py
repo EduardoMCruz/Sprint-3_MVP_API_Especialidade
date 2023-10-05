@@ -38,18 +38,18 @@ def add_especialidade(form: EspecialidadeSchema):
         return apresenta_especialidade(especialidade), 200
 
     except IntegrityError as e:
-        error_msg = "Não foi possível cadastrar o especialidade, pois já existe um especialidade com esse código"
-        print("erro: especialidade já cadastrado")
+        error_msg = "Não foi possível cadastrar a especialidade, pois já existe uma especialidade com esse código"
+        print("erro: especialidade já cadastrada")
         return {"mesage": error_msg}, 409
 
     except Exception as e:
-        error_msg = "Erro inesperado, o especialidade inserido não foi cadastrado"
+        error_msg = "Erro inesperado, a especialidade inserida não foi cadastrada"
         return {"mesage": error_msg}, 400
 
 @app.get('/especialidades', tags=[especialidade_tag],
          responses={"200": ListagemEspecialidadesSchema, "404": ErrorSchema})
 def get_especialidades():
-    """Retorna uma listagem de especialidades cadastrados na base.
+    """Retorna uma listagem de especialidades cadastradas na base.
     """
     
     session = Session()
@@ -64,14 +64,14 @@ def get_especialidades():
 def get_especialidade(query: EspecialidadeBuscaSchema):
     """Encontra um especialidade a partir do nome informado
 
-    Retorna o especialidade.
+    Retorna a especialidade.
     """
     nome = query.nome
     session = Session()
     especialidade = session.query(Especialidade).filter(Especialidade.nome == nome).first()
     if especialidade:
         return apresenta_especialidade(especialidade), 200
-    error_msg = "Especialidade não encontrado"
+    error_msg = "Especialidade não encontrada"
     return {"mesage": error_msg}, 404
  
 @app.delete('/especialidade', tags=[especialidade_tag],
@@ -87,7 +87,7 @@ def del_especialidade(query: EspecialidadeBuscaSchema):
     session.commit()
 
     if count:
-        return {"mesage": "Especialidade removido", "especialidade": nome}
-    error_msg = "Especialidade não encontrado"
+        return {"mesage": "Especialidade removida", "especialidade": nome}
+    error_msg = "Especialidade não encontrada"
     return {"mesage": error_msg}, 404
     

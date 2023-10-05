@@ -13,7 +13,7 @@ class EspecialidadeBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no nome do especialidade.
     """
-    nome: str = "Cardiologia"
+    nome: str = "Eduardo Cruz"
 
 class ListagemEspecialidadesSchema(BaseModel):
     """ Define como uma listagem de especialidades será retornada.
@@ -50,4 +50,4 @@ class EspecialidadeDelSchema(BaseModel):
 class EspecialidadeViewSchema(BaseModel):
     """ Define como um especialidade será retornado.
     """
-    nome: str = "Play Station 5"
+    nome: str = "Eduardo Cruz"
